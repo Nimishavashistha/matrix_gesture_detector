@@ -147,17 +147,17 @@ class _MatrixGestureDetectorState extends State<MatrixGestureDetector> {
   );
 
   void onScaleStart(ScaleStartDetails details) {
-    widget.onScaleStart(details);
+    widget.onScaleStart!(details);
     translationUpdater.value = details.focalPoint;
     scaleUpdater.value = 1.0;
     rotationUpdater.value = 0.0;
   }
   void onScaleEnd(ScaleEndDetails details) {
-    widget.onScaleEnd();
+    widget.onScaleEnd!(details);
   }
 
   void onScaleUpdate(ScaleUpdateDetails details) {
-    widget.onUpdateDetails(details);
+    widget.onUpdateDetails!(details);
     translationDeltaMatrix = Matrix4.identity();
     scaleDeltaMatrix = Matrix4.identity();
     rotationDeltaMatrix = Matrix4.identity();
